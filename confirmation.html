@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Confirmation - Soft Life Investments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #confirmation-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .warning {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="confirmation-container">
+        <h1>Investment Confirmation</h1>
+        <p id="investment-summary"></p>
+        <p>To complete your investment, please follow these instructions:</p>
+        <p>1. The online deposit system is currently not available.</p>
+        <p>2. Please make a deposit to the following number via Airtel Money:</p>
+        <p><strong>+260XXXXXXXXX</strong> <!-- Replace with your Airtel Money number --></p>
+        <p>3. Once you have made the deposit, copy the transaction ID or the entire message and paste it below:</p>
+        <input type="text" id="transaction-id" placeholder="Paste transaction ID or message here" required>
+        <button onclick="submitTransaction()">Submit</button>
+        <p class="warning">Please ensure that you use the same phone number you registered with to avoid errors.</p>
+    </div>
+    <script>
+        // Display the selected investment amount
+        const investmentAmount = localStorage.getItem('investmentAmount');
+        document.getElementById('investment-summary').textContent = `You have selected to invest K${investmentAmount}.`;
+
+        function submitTransaction() {
+            const transactionId = document.getElementById('transaction-id').value;
+
+            if (transactionId.trim() === '') {
+                alert('Please enter your transaction ID or message.');
+                return;
+            }
+
+            // Save the transaction ID to localStorage (or you could send it to a server if needed)
+            localStorage.setItem('transactionId', transactionId);
+
+            // Redirect to the home page or show a confirmation message
+            alert('Your transaction has been submitted successfully.');
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>

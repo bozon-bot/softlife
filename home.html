@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Life Investments - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('https://img.wapka.io/00emhl.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .investment-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .investment-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .investment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .investment-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .investment-card h3 {
+            margin: 10px 0;
+        }
+
+        .investment-card p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .investment-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .investment-card button:hover {
+            background-color: #45a049;
+        }
+
+        .custom-investment {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .custom-investment input {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+            max-width: 300px;
+        }
+
+        .custom-investment button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 120px;
+            transition: background-color 0.3s;
+        }
+
+        .custom-investment button:hover {
+            background-color: #45a049;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar a i {
+            font-size: 24px;
+        }
+
+        .navbar a span {
+            font-size: 12px;
+        }
+
+        .navbar a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Soft Life Investments
+    </div>
+
+    <div class="content">
+        <h1>Welcome to Soft Life Investments</h1>
+        <p>Your current balance: ZMW 0</p>
+
+        <!-- Investment Options -->
+        <div class="investment-container">
+            <div class="investment-card">
+                <img src="https://img.wapka.io/00emhh.jpg" alt="Invest K10">
+                <h3>Invest K10</h3>
+                <p>Receive ZMW 2 daily for 14 days (20% daily)</p>
+                <button onclick="invest(10)">Invest Now</button>
+            </div>
+
+            <div class="investment-card">
+                <img src="https://img.wapka.io/00emhi.png" alt="Invest K50">
+                <h3>Invest K50</h3>
+                <p>Receive ZMW 10 daily for 14 days (20% daily)</p>
+                <button onclick="invest(50)">Invest Now</button>
+            </div>
+
+            <div class="investment-card">
+                <img src="https://img.wapka.io/00emhj.jpg" alt="Invest K100">
+                <h3>Invest K100</h3>
+                <p>Receive ZMW 20 daily for 14 days (20% daily)</p>
+                <button onclick="invest(100)">Invest Now</button>
+            </div>
+
+            <div class="investment-card">
+                <img src="https://img.wapka.io/00emhk.jpg" alt="Invest K500">
+                <h3>Invest K500</h3>
+                <p>Receive ZMW 100 daily for 14 days (20% daily)</p>
+                <button onclick="invest(500)">Invest Now</button>
+            </div>
+
+            <div class="investment-card">
+                <img src="https://img.wapka.io/00emhl.jpg" alt="Invest K1000">
+                <h3>Invest K1000</h3>
+                <p>Receive ZMW 200 daily for 14 days (20% daily)</p>
+                <button onclick="invest(1000)">Invest Now</button>
+            </div>
+        </div>
+
+        <!-- Custom Investment Input -->
+        <div class="custom-investment">
+            <h3>Custom Investment Amount</h3>
+            <input type="number" id="custom-amount" placeholder="Enter your amount" min="10" step="10">
+            <button onclick="invest(document.getElementById('custom-amount').value)">Invest</button>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="invest.html"><i class="fas fa-dollar-sign"></i><span>Invest</span></a>
+        <a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a>
+    </div>
+
+    <script>
+    function invest(amount) {
+        localStorage.setItem('investmentAmount', amount);
+        window.location.href = 'confirmation.html';
+    }
+    </script>
+</body>
+</html>
